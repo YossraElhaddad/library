@@ -5,6 +5,8 @@
 
 body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -98,9 +100,12 @@ thead {
     font-size: medium;
 }
 
+tr {}
+
 th {
     border: 2px solid violet;
     padding: 5px;
+    min-width: 100px;
 }
 
 td {
