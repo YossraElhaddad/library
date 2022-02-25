@@ -32,6 +32,16 @@ input {
     padding: 3px;
     margin: 5px;
     width: 90%;
+    border-radius: 5px;
+    border: 1px solid #A1A1AA;
+}
+
+input:focus {
+    outline: 1px solid #2563EB;
+}
+
+input:required:invalid:focus {
+    border: 1px solid red;
 }
 
 .add button {
