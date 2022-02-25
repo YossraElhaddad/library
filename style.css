@@ -8,6 +8,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)), url("library.jpg");
+    background-size: cover;
 }
 
 .add {
