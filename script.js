@@ -10,11 +10,12 @@ function Book(title, author, numOfPages) {
 }
 
 
-
-Book.prototype.addBookToLibrary = function(book) {
-    library.push(book);
+Book.prototype.addBookToLibrary = function() {
+    library.push(this);
 
 }
+
+
 
 function checkBookExistence(book) {
     let result = false;
@@ -84,7 +85,7 @@ addBook.addEventListener('click', () => {
         book = new Book(title, author, pageCount);
 
     if (!checkBookExistence(book)) {
-        book.addBookToLibrary(book);
+        book.addBookToLibrary();
         addBookToTable(book);
     } else
         alert("That book already exists!");
@@ -97,3 +98,6 @@ form.addEventListener('submit', function handleSubmit(event) {
     event.preventDefault(); //prevent page from loading
     form.reset();
 });
+
+//reseting form when reloading
+window.onbeforeunload = form.reset();
