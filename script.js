@@ -15,7 +15,23 @@ Book.prototype.addBookToLibrary = function() {
 
 }
 
+Book.prototype.finishReading = function() {
+    let readIcon = document.createElement('i');
+    readIcon.classList.add('mdi', 'mdi-eye');
+    readIcon.setAttribute('style', 'cursor:pointer; color:lightgray; font-size: 1.5rem;');
 
+    readIcon.addEventListener('click', () => {
+        if (!this.isRead) {
+            this.isRead = true;
+            readIcon.setAttribute('style', 'color:green; cursor:pointer; font-size: 1.5rem;');
+        } else {
+            this.isRead = false;
+            readIcon.setAttribute('style', 'color:lightgray; cursor: pointer; font-size: 1.5rem;');
+        }
+
+    });
+    return readIcon;
+}
 
 function checkBookExistence(book) {
     let result = false;
@@ -45,7 +61,10 @@ function addBookToTable(book) {
     for (let attribute in book) {
         if (Object.prototype.hasOwnProperty.call(book, attribute)) {
             const cell = document.createElement('td');
-            cell.textContent = book[attribute];
+            if (typeof book[attribute] === 'boolean')
+                cell.appendChild(book.finishReading());
+            else
+                cell.textContent = book[attribute];
             row.appendChild(cell);
         }
     }
